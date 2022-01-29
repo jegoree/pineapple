@@ -1,10 +1,16 @@
 import React from "react";
 
+import Header from "./Components/Header/header.component";
+import NewsLetter from "./Components/Newsletter/newsletter.component";
+import Social from "./Components/Social/social.component";
+
 function App() {
   return (
-    <div>
-      <h2>Let's go!</h2>
-    </div>
+    <>
+      <Header />
+      <NewsLetter />
+      <Social />
+    </>
   );
 }
 
