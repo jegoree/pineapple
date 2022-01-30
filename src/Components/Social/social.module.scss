@@ -29,6 +29,10 @@
       border: none;
     }
 
+    &:active {
+      filter: brightness(0.75);
+    }
+
     &-item {
       position: relative;
       color: $vulcan;
@@ -54,7 +58,6 @@
     &-facebook:hover {
       background-color: $facebook;
     }
-
     &-instagram:hover {
       background-color: $instagram;
     }
