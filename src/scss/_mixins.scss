@@ -1,5 +1,23 @@
 @mixin after-mobile {
-    @media (min-width: 768px) {
+    @media (min-width: 700px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin after-tablet {
+    @media (min-width: 1720px) {
+        @content;
+    }
+}
+
+@mixin ultra-wide {
+    @media (min-width: 1920px) {
         @content;
     }
 }

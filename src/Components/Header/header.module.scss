@@ -1,2 +1,72 @@
 @import "../../scss/variables";
 @import "../../scss/mixins";
+
+.navbar {
+  background: $white;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 21px 16px 20px;
+
+  &__logo {
+    background: url("../../Media/logo.svg");
+    display: flex;
+    height: 40px;
+    width: 25px;
+  }
+
+  &__menu {
+    display: flex;
+
+    &-item {
+      display: table;
+      margin-left: 20px;
+
+      &:first-child {
+        margin-left: none;
+      }
+    }
+
+    &-link {
+      display: table-cell;
+      vertical-align: middle;
+      padding-top: 5px;
+      font-family: $normal;
+      font-size: $fs-normal;
+      color: $pale;
+      line-height: $lh-small;
+    }
+  }
+}
+
+@include after-mobile() {
+  .navbar {
+    padding: 2rem;
+  }
+}
+
+@include tablet() {
+  .navbar__logo {
+    width: 118px;
+  }
+}
+
+@include after-tablet() {
+  .navbar {
+    padding: 100px;
+    padding-bottom: 0;
+
+    &__menu {
+      position: relative;
+      top: 5px;
+      left: -1px;
+      &-item {
+        margin-left: 30px;
+      }
+
+      &-link {
+        font-size: $fs-desktop;
+        line-height: $lh-normal;
+      }
+    }
+  }
+}

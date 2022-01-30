@@ -1,2 +1,229 @@
 @import "../../scss/variables";
 @import "../../scss/mixins";
+
+.newsletter-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  font-family: $normal;
+  font-size: $fs-normal;
+  line-height: $lh-normal;
+  background-color: $gradient;
+
+  &-background {
+    background: url("../../Media/background.jpg");
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: cover;
+    position: absolute;
+    display: block;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+  }
+}
+
+.card {
+  background: $gradient;
+  margin: auto 20px;
+  padding: 30px 20px;
+  padding-bottom: 0;
+  max-width: 360px;
+
+  &__desc {
+    margin-bottom: 20px;
+
+    &-title {
+      font-family: $heading;
+      font-size: $fs-title;
+      line-height: $lh-title;
+      margin-bottom: 10px;
+      color: $vulcan;
+    }
+  }
+
+  &__form {
+    margin-bottom: 20px;
+
+    &-input {
+      display: flex;
+      justify-content: space-between;
+      height: 60px;
+      padding-left: 15px;
+      border: 1px solid $iron;
+      margin-bottom: 20px;
+      border-left: 4px solid $marino;
+      position: relative;
+      overflow: hidden;
+
+      &:hover {
+        border-color: $marino;
+
+        & path {
+          fill: $marino;
+          opacity: 1;
+        }
+      }
+
+      &:active {
+        border-color: $iron;
+      }
+      &-field {
+        width: 100%;
+        position: relative;
+
+        &::placeholder {
+          font-size: $fs-desktop;
+        }
+      }
+
+      &-button {
+        background: none;
+        top: 2px;
+        right: 0;
+        height: 100%;
+        padding-right: 15px;
+        padding-left: 8px;
+        position: absolute;
+      }
+    }
+
+    &-check {
+      display: inline-flex;
+      align-items: center;
+      font-size: $fs-desktop;
+      line-height: $lh-large;
+      width: 100%;
+      cursor: pointer;
+      color: $pale;
+
+      &-input {
+        display: none;
+      }
+
+      &-box {
+        width: 26px;
+        height: 26px;
+        margin-right: 15px;
+        border: 1px solid $iron;
+        border-radius: 3px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+
+        &::after {
+          content: "\2714";
+          color: $white;
+          transform: scale(0);
+        }
+      }
+
+      &-link {
+        color: $vulcan;
+        text-decoration: underline;
+        position: relative;
+        top: 1px;
+
+        &:hover {
+          color: $marino;
+          text-decoration: underline;
+        }
+
+        &:active,
+        &:focus {
+          color: $brust;
+        }
+      }
+
+      &-input:checked + &-box {
+        background-color: $marino;
+
+        &::after {
+          transform: scale(1);
+        }
+      }
+    }
+  }
+}
+
+@include after-mobile() {
+  .newsletter-page {
+    display: flex;
+    width: 45vw;
+    max-width: 680px;
+    background: $gradient;
+
+    &-background {
+      background-size: cover;
+      background-position: bottom left;
+    }
+
+    .card {
+      background: none;
+      margin: auto;
+      max-width: 100%;
+      margin: auto;
+
+      &__desc {
+        padding-top: 40px;
+        margin-bottom: 50px;
+
+        &-title {
+          font-size: $fs-heading;
+          line-height: $lh-title-lg;
+          margin-bottom: 16px;
+        }
+
+        &-text {
+          font-size: $fs-desktop;
+          line-height: $lh-large;
+          color: $pale;
+        }
+      }
+    }
+  }
+}
+
+@include tablet() {
+  .newsletter-page {
+    &-background {
+      background-size: cover;
+      background-position: bottom left 200px;
+    }
+
+    .card {
+      position: relative;
+      top: -8px;
+      background: none;
+      max-width: 400px;
+      padding: 0;
+
+      &__form {
+        position: relative;
+        width: 663px;
+        margin-bottom: 50px;
+
+        &-input {
+          padding-left: 40px;
+          margin-bottom: 55px;
+          height: 70px;
+          left: -40px;
+
+          &-button {
+            padding-right: 40px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include after-tablet() {
+  .newsletter-page {
+    &-background {
+      background-size: contain;
+      background-position: top right;
+    }
+  }
+}

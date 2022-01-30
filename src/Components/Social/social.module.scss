@@ -1,2 +1,88 @@
 @import "../../scss/variables";
 @import "../../scss/mixins";
+
+.social {
+  border-top: 1px solid $iron;
+  display: flex;
+  padding-top: 20px;
+  padding-bottom: 30px;
+  margin-left: 23px;
+
+  &:first-child {
+    margin-left: none;
+  }
+
+  &__icon {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+    border: 2px solid $iron;
+    width: 46px;
+    height: 46px;
+    margin-left: 10px;
+    border-radius: 50%;
+    overflow: hidden;
+
+    &:hover {
+      box-shadow: 0px 20px 40px rgba(19, 24, 33, 0.3);
+      border: none;
+    }
+
+    &-item {
+      position: relative;
+      color: $vulcan;
+      font-size: 1.3em;
+      opacity: 0.3;
+      display: block;
+      height: 100%;
+      width: 100%;
+
+      &-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      &:hover {
+        color: $white;
+        opacity: 1;
+      }
+    }
+
+    &-facebook:hover {
+      background-color: $facebook;
+    }
+
+    &-instagram:hover {
+      background-color: $instagram;
+    }
+
+    &-twitter:hover {
+      background-color: $twitter;
+    }
+
+    &-youtube:hover {
+      background-color: $youtube;
+    }
+  }
+}
+
+@include after-mobile() {
+  .social {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    left: -22px;
+    top: -2px;
+
+    &__icon {
+      margin-top: 30px;
+      margin-left: 20px;
+      &:first-child {
+        margin-left: none;
+      }
+    }
+  }
+}
