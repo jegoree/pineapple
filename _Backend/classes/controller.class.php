@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * 
+ * Controller will use user input and put it in DB
+ * 
+ */
+
+
 class Controller extends Model
 {
 
@@ -7,4 +14,11 @@ class Controller extends Model
 	{
 		$this->setEmail($email);
 	}
+
+	public function deleteEmail($id)
+	{
+		$this->eraseEmail($id);
+	}
 }
+
+

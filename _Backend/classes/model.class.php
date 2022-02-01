@@ -8,13 +8,18 @@
 
 class Model extends Dbh
 {
-	protected function getEmails()
+	protected function getEmails($order, $sort)
 	{
-		$sql = 'SELECT * FROM subscriptions';
+		$sql = "SELECT * FROM subscriptions ORDER BY $order $sort";
 		$stmt = $this->connect()->query($sql);
+		$rs = array();
+
+		// Populates array with data
 		while ($row = $stmt->fetch()) {
-			echo $row['email'] . '<br>';
+			$rs[] = $row;
 		}
+
+		return $rs;
 	}
 
 	protected function setEmail($email)
@@ -22,5 +27,12 @@ class Model extends Dbh
 		$sql = "INSERT INTO subscriptions(email) VALUE (?)";
 		$stmt = $this->connect()->prepare($sql);
 		$stmt->execute([$email]);
+	}
+
+	protected function eraseEmail($id)
+	{
+		$sql = "DELETE FROM subscriptions WHERE id=(?)";
+		$stmt = $this->connect()->prepare($sql);
+		$stmt->execute([$id]);
 	}
 }

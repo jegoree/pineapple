@@ -1,4 +1,12 @@
 <?php 
+
+/**
+ * 
+ * A small tool that will integrate all the classes
+ * 
+ */
+
+
 spl_autoload_register('myAutoLoader');
 
 function myAutoLoader($className) {
