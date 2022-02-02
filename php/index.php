@@ -1,9 +1,20 @@
 <?php
 
-include 'class-autoload.php';
+// phpinfo();
+include_once 'classes/controller.class.php';
+
+include_once 'classes/view.class.php';
 
 $emailObj = new View();
 
+function d($value = null, $die = 1)
+{
+	echo 'Debug: <br /><pre>';
+	print_r($value);
+	echo '</pre>';
+
+	if ($die) die;
+}
 
 // Sorting logic
 if (isset($_GET['order'])) {
@@ -29,9 +40,15 @@ if (isset($_GET['delete'])) {
 	header("Refresh:0; url=index.php");
 }
 
+if (isset($_GET['add'])) {
+	$email = $_GET['add'];
+	$ctrl = new Controller();
+	$ctrl->addEmail($email);
+	header("Refresh:0; url=index.php");
+}
+
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -48,13 +65,13 @@ if (isset($_GET['delete'])) {
 		<tr>
 			<?php $sort == 'ASC' ? $sort = 'DESC' : $sort = 'ASC' ?>
 			<th><a href='?order=email&&sort=<?= $sort ?>'>Email</a></th>
-			<th><a href='?order=date&&sort=<?= $sort ?>'>Date</a></th>
+			<th><a href='?order=dateAdded&&sort=<?= $sort ?>'>Date</a></th>
 			<th>Delete</th>
 		</tr>
 		<?php foreach ($result as $row) : ?>
 			<tr>
 				<td><?= $row['email']; ?></td>
-				<td><?= $row['date']; ?></td>
+				<td><?= $row['dateAdded']; ?></td>
 				<td><a href="?delete=<?php echo $row['id']; ?>">Delete</a></td>
 			</tr>
 		<?php endforeach; ?>

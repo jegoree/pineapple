@@ -27,13 +27,20 @@ body {
 }
 
 .card {
-  
   background: $gradient;
-  margin: auto;
+  margin: auto 20px;
   padding: 30px 20px;
   padding-bottom: 0;
   max-width: 360px;
   z-index: 10;
+
+  &__troophy {
+    background: url("../../Media/ic_success.svg");
+    display: flex;
+    height: 70px;
+    width: 44px;
+    margin-bottom: 39px;
+  }
 
   &__desc {
     margin-bottom: 20px;
@@ -170,6 +177,10 @@ body {
       max-width: 100%;
       margin: auto;
 
+      &__troophy {
+        margin-bottom: 0;
+      }
+
       &__desc {
         padding-top: 40px;
         margin-bottom: 50px;
@@ -206,7 +217,7 @@ body {
 
       &__form {
         position: relative;
-        width: 663px;
+        width: 475px;
         margin-bottom: 50px;
 
         &-input {
@@ -226,6 +237,9 @@ body {
 
 @include after-tablet() {
   .newsletter-page {
+    .card__form {
+      width: 663px;
+    }
     &-background {
       background-size: contain;
       background-position: top right;

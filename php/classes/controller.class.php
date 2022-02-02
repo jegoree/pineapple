@@ -1,5 +1,5 @@
 <?php
-
+include_once 'classes/model.class.php';
 /**
  * 
  * Controller will use user input and put it in DB

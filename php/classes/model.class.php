@@ -1,5 +1,5 @@
 <?php
-
+include_once 'classes/dbh.class.php';
 /**
  * 
  * Model class is responsible for interacting with DB
@@ -24,9 +24,9 @@ class Model extends Dbh
 
 	protected function setEmail($email)
 	{
-		$sql = "INSERT INTO subscriptions(email) VALUE (?)";
+		$sql = "INSERT INTO `subscriptions` (id, email, dateAdded) VALUES (NULL, '$email', current_timestamp());";
 		$stmt = $this->connect()->prepare($sql);
-		$stmt->execute([$email]);
+		$stmt->execute();
 	}
 
 	protected function eraseEmail($id)

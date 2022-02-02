@@ -9,10 +9,12 @@
 class Dbh
 {
 	// Login details
-	private $dblocation = "127.0.0.1";
+	private $dblocation = "localhost";
 	private $dbname = "pineapple";
 	private $dbuser = "root";
 	private $dbpasswd = "test12345";
+
+	
 
 	protected function connect()
 	{
